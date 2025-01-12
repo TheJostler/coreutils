@@ -147,6 +147,7 @@ enum
 
 static struct option const long_opts[] =
 {
+  {"recursive", no_argument, nullptr, 'r'},
   {"exact", no_argument, nullptr, 'x'},
   {"force", no_argument, nullptr, 'f'},
   {"iterations", required_argument, nullptr, 'n'},
@@ -1037,7 +1038,6 @@ incname (char *name, size_t len)
 static bool
 wipename (char *oldname, char const *qoldname, struct Options const *flags)
 {
-  printf("wipename\n");
   char *newname = xstrdup (oldname);
   char *base = last_component (newname);
   char *dir = dir_name (newname);
@@ -1156,7 +1156,6 @@ wipefile (char *name, char const *qname,
       error (0, errno, _("%s: failed to close"), qname);
       ok = false;
     }
-  printf("remove_file: %u, Ok: %i\n", flags->remove_file, ok);
   if (ok && flags->remove_file)
     ok = wipename (name, qname, flags);
   return ok;
