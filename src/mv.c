@@ -328,6 +328,7 @@ main (int argc, char **argv)
   char **file;
   bool selinux_enabled = (0 < is_selinux_enabled ());
 
+  printf("I LIKE TO MOVE IT MOVE IT!\n");
   initialize_main (&argc, &argv);
   set_program_name (argv[0]);
   setlocale (LC_ALL, "");

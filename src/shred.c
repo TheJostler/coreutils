@@ -1334,7 +1334,7 @@ main (int argc, char **argv)
   struct stat statbuf;
   for (i = 0; i < n_files; i++)
     {
-      if (stat(file[i], &statbuf) == 0 && S_ISDIR(statbuf.st_mode))
+      if (stat(file[i], &statbuf) == 0 && S_ISDIR(statbuf.st_mode) && flags.recursive)
         {
           if (! ok){
             continue;
